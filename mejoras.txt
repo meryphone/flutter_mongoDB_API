@@ -1,0 +1,46 @@
+OLD
+ssh it3lora@212.128.44.184
+Contraseña: accesorestringido
+NEW
+mcapillaz@212.128.45.131
+pass: mcapillaz
+Posibles valores de sensores:
+[ 32416, 32417, 32418, 32419 ]
+
+4. Configuración de CORS más específica
+Actualmente, CORS está habilitado para todos los orígenes (CORS(app)), lo cual puede ser un riesgo de seguridad. Puedes restringirlo a dominios específicos:
+
+from flask_cors import CORS
+CORS(app, resources={r"/*": {"origins": ["http://localhost:3000", "https://mi-app-flutter.com"]}})
+
+
+5. Logging para errores
+En lugar de solo imprimir errores en la consola, puedes usar un sistema de logging para registrar errores en un archivo o servicio externo:
+
+import logging
+
+logging.basicConfig(filename="api.log", level=logging.ERROR)
+
+@app.route("/grafica", methods=["GET"])
+def obtener_datos_grafica():
+    try:
+        # Lógica de la API...
+    except Exception as e:
+        logging.error(f"Error: {str(e)}")
+        return jsonify({"error": f"Error inesperado: {str(e)}"}), 500
+        
+6. Documentación con Swagger o Postman
+Puedes usar herramientas como Flask-RESTx o Flask-Swagger para documentar automáticamente tu API. Esto facilita a otros desarrolladores entender cómo usarla.
+
+Ejemplo con Flask-RESTx:
+from flask_restx import Api, Resource
+
+api = Api(app, version="1.0", title="API de Vibraciones", description="Documentación de la API")
+
+ns = api.namespace("grafica", description="Operaciones relacionadas con la gráfica")
+
+@ns.route("/")
+class Grafica(Resource):
+    def get(self):
+        """Obtiene los datos de la gráfica"""
+        # Lógica de la API...

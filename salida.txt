@@ -1,0 +1,61 @@
+[DEBUG] Iniciando servidor SocketIO
+[DEBUG] Evento 'graph' recibido con datos: {'sensor_id': '32417'}
+[DEBUG] sensor_id: 32417, sid: AYw3Uo1QuCw_V2b-AAAB
+[DEBUG] Iniciando stream para sensor_id: 32417, sid: AYw3Uo1QuCw_V2b-AAAB
+[DEBUG] Consultando MongoDB para sensor_id: 32417
+[DEBUG] Hilo iniciado para sid: AYw3Uo1QuCw_V2b-AAAB
+[DEBUG] Documento recuperado de MongoDB:
+[DEBUG] Datos extraídos - payload: , sampling_period: 3.125000148429535e-05, timestamp: 1749206704
+[DEBUG] Submuestreo realizado - total: 18358, step: 18, 
+[DEBUG] Respuesta preparada para el cliente:
+[DEBUG] Respuesta emitida al cliente
+[DEBUG] Consultando MongoDB para sensor_id: 32417
+[DEBUG] Documento recuperado de MongoDB:
+[DEBUG] Datos extraídos - payload: , sampling_period: 3.125000148429535e-05, timestamp: 1749206714
+[DEBUG] Submuestreo realizado - total: 18358, step: 18, 
+[DEBUG] Respuesta preparada para el cliente:
+[DEBUG] Respuesta emitida al cliente
+[DEBUG] Consultando MongoDB para sensor_id: 32417
+[DEBUG] Documento recuperado de MongoDB:
+[DEBUG] Datos extraídos - payload: , sampling_period: 3.125000148429535e-05, timestamp: 1749206725
+[DEBUG] Submuestreo realizado - total: 18358, step: 18, 
+[DEBUG] Respuesta preparada para el cliente:
+[DEBUG] Respuesta emitida al cliente
+[DEBUG] Consultando MongoDB para sensor_id: 32417
+[DEBUG] Documento recuperado de MongoDB:
+[DEBUG] Datos extraídos - payload: , sampling_period: 3.125000148429535e-05, timestamp: 1749206735
+[DEBUG] Submuestreo realizado - total: 18358, step: 18, 
+[DEBUG] Respuesta preparada para el cliente:
+[DEBUG] Respuesta emitida al cliente
+[DEBUG] Consultando MongoDB para sensor_id: 32417
+[DEBUG] Documento recuperado de MongoDB:
+[DEBUG] Datos extraídos - payload: , sampling_period: 3.125000148429535e-05, timestamp: 1749206746
+[DEBUG] Submuestreo realizado - total: 18358, step: 18, 
+[DEBUG] Respuesta preparada para el cliente:
+[DEBUG] Respuesta emitida al cliente
+[DEBUG] Evento 'graph' recibido con datos: {'sensor_id': '32417'}
+[DEBUG] sensor_id: 32417, sid: d7lAwQf0PM_znhBKAAAD
+[DEBUG] Iniciando stream para sensor_id: 32417, sid: d7lAwQf0PM_znhBKAAAD
+[DEBUG] Consultando MongoDB para sensor_id: 32417
+[DEBUG] Hilo iniciado para sid: d7lAwQf0PM_znhBKAAAD
+[DEBUG] Documento recuperado de MongoDB:
+[DEBUG] Datos extraídos - payload: , sampling_period: 3.125000148429535e-05, timestamp: 1749206748
+[DEBUG] Submuestreo realizado - total: 18358, step: 18, 
+[DEBUG] Respuesta preparada para el cliente:
+[DEBUG] Respuesta emitida al cliente
+[DEBUG] Cliente desconectado: AYw3Uo1QuCw_V2b-AAAB
+[DEBUG] Deteniendo hilo para sid: AYw3Uo1QuCw_V2b-AAAB
+[DEBUG] Hilo eliminado para sid: AYw3Uo1QuCw_V2b-AAAB
+[DEBUG] Consultando MongoDB para sensor_id: 32417
+[DEBUG] Documento recuperado de MongoDB:
+[DEBUG] Datos extraídos - payload: , sampling_period: 3.125000148429535e-05, timestamp: 1749206759
+[DEBUG] Submuestreo realizado - total: 18358, step: 18, 
+[DEBUG] Respuesta preparada para el cliente:
+[DEBUG] Respuesta emitida al cliente
+[DEBUG] Consultando MongoDB para sensor_id: 32417
+[DEBUG] Documento recuperado de MongoDB:
+[DEBUG] Datos extraídos - payload: , sampling_period: 3.125000148429535e-05, timestamp: 1749206770
+[DEBUG] Submuestreo realizado - total: 18358, step: 18, 
+[DEBUG] Respuesta preparada para el cliente:
+[DEBUG] Respuesta emitida al cliente
+[DEBUG] Iniciando servidor SocketIO
