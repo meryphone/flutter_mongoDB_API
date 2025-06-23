@@ -26,7 +26,7 @@ class ErrorMessages(str, Enum):
 DESIRED_POINTS = 1000
 TIMEOUT = 5000
 
-# Quitar para pasar a produccion
+# Quitar para pasar a produccionn
 app.add_middleware( 
     CORSMiddleware,
     allow_origins=["*"],  

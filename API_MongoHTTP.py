@@ -107,7 +107,7 @@ def obtener_vibracion(sensor_id: int):
     except Exception as e:
         logging.error(f"Error inesperado en la consulta: {str(e)}")
         raise HTTPException(status_code=500, detail=ErrorMessages.UNEXPECTED_ERROR)
-
+#EndPoint
 @app.get("/vibraciones")
 async def get_vibraciones(sensor_id: int):
     """

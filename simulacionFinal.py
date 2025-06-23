@@ -53,6 +53,6 @@ while True:
             print(f"Datos enviados - timestamp: {timestamp}, muestras: {samples_time}")
     except Exception as e:
         print(f"Error al enviar datos: {e}")
-
+    # Envia cada un segundo
     time.sleep(1)
 
