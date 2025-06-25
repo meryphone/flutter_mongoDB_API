@@ -10,6 +10,7 @@ from enum import Enum
 from fastapi.middleware.cors import CORSMiddleware
 import sys
 import asyncio
+import time
 
 logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(message)s")
 
@@ -23,7 +24,7 @@ class ErrorMessages(str, Enum):
     DATA_NOT_FOUND = "Datos no encontrados"
     MONGO_TIMEOUT = "No se pudo conectar a MongoDB"
 
-DESIRED_POINTS = 1000
+DESIRED_POINTS = 500
 TIMEOUT = 5000
 
 # Quitar para pasar a produccionn
@@ -129,22 +130,29 @@ async def websocket_endpoint(websocket: WebSocket):
 
             # Buscar documento más reciente
             doc = collection.find_one({"id": current_sensor_id}, sort=[("timestamp", -1)])
-
-            # Solo enviar si hay uno nuevo
-            if doc and doc["_id"] != last_doc_id:
+            timestamp = doc["timestamp"]
+            now = int(time.time())
+            print(f"Timestamp: {timestamp}, Now: {now}")
+            # Solo enviar si hay uno nuevo y el documento NO es antiguo
+            if doc and doc["_id"] != last_doc_id and now - timestamp <= 3:
                 last_doc_id = doc["_id"]
-                payload = doc["payload_values"]
+                payload = doc["payload_values"]  # Ordenar de menor a mayor vibración
                 sampling_period = doc["sampl_period"]
-                timestamp = doc["timestamp"]
 
                 total = len(payload)
                 step = max(1, total // DESIRED_POINTS)
                 filtered = payload[::step]
 
+                # Calcular máximo y mínimo
+                max_value = max(payload) / 1000 if payload else None
+                min_value = min(payload) / 1000 if payload else None
+
                 data_points = [
-                    {"x": round(timestamp + i * sampling_period * step, 8), "y": value / DESIRED_POINTS}
+                    {"x": round(timestamp + i * sampling_period * step, 8), "y": value / 1000}
                     for i, value in enumerate(filtered)
                 ]
+
+                print("Primeros 5 puntos de data_points:", data_points[:5])
 
                 response = {
                     "sensor_id": current_sensor_id,
@@ -152,6 +160,8 @@ async def websocket_endpoint(websocket: WebSocket):
                     "sampling_period": sampling_period,
                     "original_points": total,
                     "downsampled_points": len(data_points),
+                    "max_value": max_value ,
+                    "min_value": min_value,
                     "data": data_points
                 }
 
@@ -160,6 +170,10 @@ async def websocket_endpoint(websocket: WebSocket):
             # Si no hay nuevo documento, no se envía nada
             await asyncio.sleep(0.2)
 
+    except errors.ServerSelectionTimeoutError as e:
+        logging.error(f"{ErrorMessages.MONGO_TIMEOUT}: {str(e)}")
+        await send_error(manager, websocket, ErrorMessages.MONGO_TIMEOUT, f"Error al consultar MongoDB: {str(e)}")
+        sys.exit(1)
     except WebSocketDisconnect:
         manager.disconnect(websocket)
         logging.info(f"Cliente desconectado: {client_ip}")
