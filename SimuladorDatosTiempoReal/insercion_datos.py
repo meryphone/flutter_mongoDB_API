@@ -6,12 +6,12 @@ import threading
 from pymongo import MongoClient
 
 # Conexión a MongoDB
-mongo_client = MongoClient("mongodb://sensorvib:claveSegura123@localhost:27017/vibraciones")
-mongo_db = mongo_client["vibraciones"]
-mongo_collection = mongo_db["test"]
+mongo_client = MongoClient(MONGO_URI)
+mongo_db = mongo_client["tu_base_de_datos"]
+mongo_collection = mongo_db["tu_coleccion"]
 
 _HOST = "0.0.0.0"
-_PORT = 8085
+_PORT = 8085 # Cambiar si es conveniente
 
 def recv_exact(sock, n):
     """Recibe exactamente n bytes del socket."""

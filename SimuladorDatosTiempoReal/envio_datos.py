@@ -3,8 +3,8 @@ import struct
 import time
 import random
 
-SERVER_IP = "212.128.45.131"
-SERVER_PORT = 8085
+SERVER_IP = "IP del servidor"
+SERVER_PORT = 8085 # Cambiar si es conveniente
 
 sensor_id = 0x7EA1 
 sampling_period = 1 / 32000.0
