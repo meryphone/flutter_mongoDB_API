@@ -1,5 +1,6 @@
 
-![logodimensionao](https://github.com/user-attachments/assets/b94671bc-590d-4a23-a755-892ca98955e2)
+![logogit (1) (1)](https://github.com/user-attachments/assets/efc4a76b-fe34-48d1-a573-587266e41dd2)
+
 
 
 # Monitor de Vibraciones en Tiempo Real
