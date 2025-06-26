@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logogit.png" alt="Monitorización de Vibraciones" width="500"/>
+</p>
+
 Este proyecto permite la visualización en tiempo real de datos de vibración almacenados en una base de datos MongoDB obtenidos desde distintos sensores, utilizando una arquitectura moderna basada en:
 
 - FastAPI + WebSocket para servir los datos desde MongoDB
@@ -61,7 +65,7 @@ cd monitor-vibraciones```
 `source venv/bin/activate`  # En Linux/macOS
 `venv\Scripts\activate`     # En Windows
 ```
-### 4. Instala dependencias.
+### 4. Instala dependencias
 
 Instala las dependencias del fichero 
 
@@ -76,5 +80,15 @@ Contenido de ejemplo del fichero .env de ejemplo:
 # URI de conexión a tu instancia de MongoDB
 MONGO_URI=mongodb://usuario:contraseña@localhost:27017/vibraciones
 ```
+## 6. Poner en marcha la página web
 
+Se deberá cambiar el número de workers en función del número de núcleos del sistema.
+
+```bash 
+gunicorn API_MongoWebSocket:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000 --workers 4
+```
+
+### 7. Ejecutar simulación de datos en tiempo real
+
+Se ha incluido una simulación de datos en tiempo real para poder usar la web datos reales. En su carpeta correspondiente se incluyen las instrucciones de uso.
 
