@@ -132,7 +132,6 @@ async def websocket_endpoint(websocket: WebSocket):
             doc = collection.find_one({"id": current_sensor_id}, sort=[("timestamp", -1)])
             timestamp = doc["timestamp"]
             now = int(time.time())
-            print(f"Timestamp: {timestamp}, Now: {now}")
             # Solo enviar si hay uno nuevo y el documento NO es antiguo
             if doc and doc["_id"] != last_doc_id and now - timestamp <= 3:
                 last_doc_id = doc["_id"]
@@ -151,8 +150,6 @@ async def websocket_endpoint(websocket: WebSocket):
                     {"x": round(timestamp + i * sampling_period * step, 8), "y": value / 1000}
                     for i, value in enumerate(filtered)
                 ]
-
-                print("Primeros 5 puntos de data_points:", data_points[:5])
 
                 response = {
                     "sensor_id": current_sensor_id,
@@ -183,4 +180,4 @@ async def websocket_endpoint(websocket: WebSocket):
         manager.disconnect(websocket)
 
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="debug")
+    uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")
