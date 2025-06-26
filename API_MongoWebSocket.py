@@ -31,14 +31,14 @@ TIMEOUT = 5000  # Timeout para conexión a MongoDB
 # Middleware CORS para permitir peticiones desde cualquier origen (útil en desarrollo)
 app.add_middleware( 
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=["https://tudominio.com"],  # Cambia esto
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
 # Monta la carpeta de archivos estáticos (frontend)
-app.mount("/", StaticFiles(directory="frontend_dist", html=True), name="static")
+app.mount("/grafica", StaticFiles(directory="frontend_dist", html=True), name="static")
 
 # Conexión a MongoDB
 MONGO_URI = os.getenv("MONGO_URI")
@@ -135,8 +135,10 @@ async def websocket_endpoint(websocket: WebSocket):
             if doc is not None:
                 timestamp = doc["timestamp"]
                 now = int(time.time())
-                # Solo enviar si hay uno nuevo y el documento NO es antiguo
-                if doc["_id"] != last_doc_id and now - timestamp <= 3:
+                logging.debug(f"now: {now}, timestamp: {timestamp}, diferencia: {now - timestamp}")
+                # Solo se envíe si el documento es reciente y es distinto al anterioir enviado
+                if doc["_id"] != last_doc_id and (now - timestamp <= 3):
+                    logging.debug(f"Enviando datos para sensor {current_sensor_id} (doc _id: {doc['_id']})")
                     last_doc_id = doc["_id"]
                     payload = doc["payload_values"]  # Datos de vibración
                     sampling_period = doc["sampl_period"]

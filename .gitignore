@@ -43,6 +43,11 @@ __pycache__/
 # C extensions
 *.so
 
+# Entorno virtual
+venv/
+.env/
+.venv/
+
 # Distribution / packaging
 .Python
 develop-eggs/

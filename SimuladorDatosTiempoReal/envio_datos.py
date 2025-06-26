@@ -18,13 +18,8 @@ len_freq = samples_freq * 2
 def limitar_int16(valor):
     return max(min(int(valor), 32767), -32768)
 
-initial_timestamp = int(time.time())
-counter = 0
-
 while True:
-    timestamp = initial_timestamp + counter
-    counter += 1
-
+    timestamp = int(time.time())  
     media = 20000
     desviacion = 3000
 
