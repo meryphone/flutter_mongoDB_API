@@ -1,9 +1,3 @@
-
-![logogit (1) (1)](https://github.com/user-attachments/assets/efc4a76b-fe34-48d1-a573-587266e41dd2)
-
-
-
-# Monitor de Vibraciones en Tiempo Real
 Este proyecto permite la visualización en tiempo real de datos de vibración almacenados en una base de datos MongoDB obtenidos desde distintos sensores, utilizando una arquitectura moderna basada en:
 
 - FastAPI + WebSocket para servir los datos desde MongoDB
