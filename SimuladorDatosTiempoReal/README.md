@@ -6,7 +6,7 @@ Este submódulo del proyecto permite simular el envío y la recepción de datos 
 
 ## Archivos incluidos
 
-###`envio_datos.py`
+### `envio_datos.py`
 - Simula un sensor de vibraciones.
 - Genera datos con distribución normal.
 - Los empaqueta en formato binario (cabecera + payload).
