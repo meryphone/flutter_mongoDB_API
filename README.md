@@ -1,5 +1,7 @@
-# Monitor de Vibraciones en Tiempo Real
+![logogit](https://github.com/user-attachments/assets/b1ae11e1-234b-4c6f-a43c-1dc0e8afb3c4)
 
+
+# Monitor de Vibraciones en Tiempo Real
 Este proyecto permite la visualización en tiempo real de datos de vibración almacenados en una base de datos MongoDB obtenidos desde distintos sensores, utilizando una arquitectura moderna basada en:
 
 - FastAPI + WebSocket para servir los datos desde MongoDB
@@ -72,7 +74,11 @@ pip install -r requirements.txt`
 ``` 
 ### 5. Crea las variables de entorno
 
+Contenido de ejemplo del fichero .env de ejemplo:
 
-
+```bash 
+# URI de conexión a tu instancia de MongoDB
+MONGO_URI=mongodb://usuario:contraseña@localhost:27017/vibraciones
+```
 
 
