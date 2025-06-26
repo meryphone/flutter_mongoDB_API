@@ -58,14 +58,18 @@ cd monitor-vibraciones```
 
 ### 2. Crea un entorno virtaul (recomendado)
 
+```bash
 `python -m venv venv`
 `source venv/bin/activate`  # En Linux/macOS
 `venv\Scripts\activate`     # En Windows
-
+```
 ### 4. Instala dependencias.
 
-`pip install -r requirements.txt`
+Instala las dependencias del fichero 
 
+```bash 
+pip install -r requirements.txt`
+``` 
 ### 5. Crea las variables de entorno
 
 
