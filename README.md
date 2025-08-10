@@ -90,5 +90,5 @@ gunicorn API_MongoWebSocket:app -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:
 
 ### 7. Ejecutar simulación de datos en tiempo real
 
-Se ha incluido una simulación de datos en tiempo real para poder usar la web datos reales. En su carpeta correspondiente se incluyen las instrucciones de uso.
+Se ha incluido una simulación de datos en tiempo real para poder usar la web sin datos reales. En su carpeta correspondiente se incluyen las instrucciones de uso.
 
