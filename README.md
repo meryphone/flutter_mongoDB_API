@@ -5,7 +5,7 @@
 Este proyecto permite la visualización en tiempo real de datos de vibración almacenados en una base de datos MongoDB obtenidos desde distintos sensores, utilizando una arquitectura moderna basada en:
 
 - FastAPI + WebSocket para servir los datos desde MongoDB
-- Flutter Web (generado con FlutterFlow) para el frontend interactivo
+- Flutter Web para el frontend interactivo
 - Syncfusion Charts para representación gráfica fluida y dinámica
 
 ---
